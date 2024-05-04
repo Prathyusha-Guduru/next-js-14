@@ -5,7 +5,7 @@
 - The `Link` component is used for client-side routing, which prevents full page reloads.
 - Use the `useRouter` hook for programmatic navigation between components.
 - For dynamic segments, name files or folders with brackets, e.g., `[:id]`.
-- Special naming conventions include `(stuff)` for route grouping and `@pro`, `@basic` for parallel routes.
+- Special naming conventions include `(stuff)` for route grouping and `@pro`, `@basic` for parallel routes, read more [here](https://github.com/Prathyusha-Guduru/next-js-14/blob/main/special-routing-cases.md) 
 - Keeping the routing structure simple is advisable for clarity and usability.
 
 ## Route Handlers
