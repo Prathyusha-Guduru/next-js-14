@@ -15,5 +15,6 @@
 ## Layouts
 - The root layout contains global components like navigation bars and footers and uses a `children` prop for different pages.
 - Nested layouts can be used for specific application sections, such as a dashboard with its own navigation components.
-- Layouts handle their own data fetching and only re-render parts of the UI that change.
+- Layouts handle their own data fetching
+- Layouts are efficient because they help us avoid re-rendering of commonly used components
 - Layouts do not re-mount with route changes. To enable re-mounting, rename `layout.tsx` to `template.tsx`.
