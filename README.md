@@ -19,6 +19,34 @@
 - Layouts are efficient because they help us avoid re-rendering of commonly used components
 - Layouts do not re-mount with route changes. To enable re-mounting, rename `layout.tsx` to `template.tsx`.
 
+## Rendering and SEO in Next.js
+
+One of the primary reasons developers choose Next.js is for its Server-Side Rendering (SSR) capabilities, which significantly improve SEO and the initial loading experience of web applications. However, Next.js provides several rendering strategies to optimize performance and SEO further:
+
+- **SSR (Server-Side Rendering)**: Renders pages on the server at request time.
+- **Static Generation**: Pages are pre-rendered and reused on each request.
+- **ISR (Incremental Static Regeneration)**: Pages are generated statically but can be updated after deployment based on defined conditions.
+- **Client-Side Rendering**: Components are rendered in the browser.
+
+In Next.js 14, components are rendered server-side by default. If client-side rendering is necessary, the `use client` prefix should be used in the component.
+
+#### Dynamic Rendering Control
+You can control how your components are rendered and cached by exporting specific settings:
+
+- **Dynamic Export**: Set `export dynamic = 'auto'` to let Next.js decide the best rendering strategy based on the component. Changing this to `force-dynamic` will always use SSR without caching, which is beneficial for pages that fetch heavy or frequently updated data.
+- **Static Caching**: Using `force-static` causes the page to be cached indefinitely, leveraging the browser and CDN caching for performance gains.
+
+#### Regeneration Strategy
+The `revalidate` option allows pages to be regenerated at a specified interval, enhancing data accuracy without sacrificing the benefits of static generation:
+
+- **Example**: `export const revalidate = 6900` ensures the page regenerates every 6900 seconds, a method similar to ISR.
+
+#### SEO Enhancement
+Next.js supports exporting metadata that dynamically updates the `<head>` section of the document, improving SEO:
+
+- **Example Needed**: This could include dynamically populating title tags, descriptions, or other metadata based on the content of the page or external data sources.
+
+
 ## Data Fetching 
 
 Each page in Next.js can directly access server-side resources as they are inherently server-side rendered components. This integration simplifies fetching data from backend APIs without the need to pass props for initial data loading.
